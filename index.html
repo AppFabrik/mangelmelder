@@ -17,15 +17,19 @@
 
         body {
             font-family: 'Segoe UI', sans-serif;
-            background-color: #F0F2F5;
             margin: 0; padding: 0;
             display: flex; justify-content: center;
+            background-image: linear-gradient(rgba(240, 242, 245, 0.88), rgba(240, 242, 245, 0.88)), url("background.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
 
         .container {
             width: 100%; max-width: 550px;
-            background: white; min-height: 100vh;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+            background: transparent; min-height: 100vh;
+            box-shadow: none;
         }
 
         header {
@@ -42,10 +46,14 @@
         .section-title {
             color: var(--hb-red); font-weight: bold; font-size: 1.1rem;
             border-bottom: 2px solid #F0F0F0; margin: 25px 0 15px 0; padding-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8); /* Leichtes Text-Shadowing für bessere Lesbarkeit auf dem Bild */
         }
 
         .form-group { margin-bottom: 15px; }
-        label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
+        label { 
+            display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; 
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8); /* Leichtes Text-Shadowing für bessere Lesbarkeit auf dem Bild */
+        }
         
         input, textarea, select {
             width: 100%; padding: 12px; border: 2px solid #EEE;
@@ -85,7 +93,7 @@
 
 <div class="container">
     <header>
-        <img src="icon-192.png" alt="Logo Mangelmelder" onerror="this.style.display='none'">
+        <img src="icon-192.png" alt="Wappen Heimburg" onerror="this.style.display='none'">
         <h2>Mangelmelder Heimburg</h2>
     </header>
 
@@ -160,7 +168,7 @@
         </div>
 
         <div class="photo-box">
-            <label style="color: var(--hb-red); font-weight: bold;">📷 Fotos (max. 5)</label>
+            <label style="color: var(--hb-red); font-weight: bold; text-shadow: none;">📷 Fotos (max. 5)</label>
             <p style="font-size: 0.75rem; margin-bottom: 10px;">Bilder werden automatisch in Ihrer Galerie gespeichert.</p>
             <input type="file" accept="image/*" capture="environment" style="margin-bottom:5px">
             <input type="file" accept="image/*" capture="environment" style="margin-bottom:5px">
