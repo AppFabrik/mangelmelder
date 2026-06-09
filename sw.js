@@ -1,12 +1,12 @@
 const CACHE_NAME = 'mangelmelder-cache-v2';
 
-// Alle Dateien, die für den Offline-Betrieb geladen werden müssen
+// Alle Dateien, die fÃ¼r den Offline-Betrieb geladen werden mÃ¼ssen
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
   './icon-192.png',
-  './background.png'
+  './Background.png'
 ];
 
 // Service Worker installieren und Dateien in den Cache laden
@@ -20,14 +20,14 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Alten Cache löschen, wenn eine neue Version aktiviert wird
+// Alten Cache lÃ¶schen, wenn eine neue Version aktiviert wird
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cache) => {
           if (cache !== CACHE_NAME) {
-            console.log('Alten Cache gelöscht:', cache);
+            console.log('Alten Cache gelÃ¶scht:', cache);
             return caches.delete(cache);
           }
         })
@@ -36,7 +36,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Anfragen abfangen und wenn möglich aus dem Cache beantworten (Offline-Modus)
+// Anfragen abfangen und wenn mÃ¶glich aus dem Cache beantworten (Offline-Modus)
 self.addEventListener('fetch', (event) => {
   // Nur GET-Anfragen cachen (wichtig, da Formular-Submits sonst Fehler erzeugen)
   if (event.request.method !== 'GET') return;
